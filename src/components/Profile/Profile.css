@@ -1,0 +1,53 @@
+.profile {
+    float: right;
+    margin: 20px;
+}
+
+.profile__tenantContainer {
+    background-color: #1F1F1F;
+    color: white;
+    padding: 20px;
+}
+
+.profile__intro {
+    display: flex;
+}
+
+.profile__intro h3 {
+    padding-left: 10px;
+    margin: 0;
+}
+
+.profile__tenantData {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.profile__tenantData ul li {
+    padding: 7px 0;
+}
+
+.profile__avatar {
+    /* margin: auto; */
+}
+
+.profile__buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.btn {
+    background-color: #FD5B01 !important;
+    color: white !important;
+    font-weight: 700 !important;
+    text-transform: inherit !important;
+    margin-bottom: 7px !important;
+    font-family: inherit !important;
+}
+
+.btn:hover {
+    background-color: white !important;
+    color: #FD5B01 !important;
+}

@@ -1,0 +1,15 @@
+.main__suggestedApartments {
+  display: flex;
+  padding: 10px;
+}
+
+.main__viewChoiceButtons {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.main__viewChoiceButtons .active {
+  border-bottom: 1px solid #FD5B01;
+  border-radius: 0;
+  padding-bottom: 3px;
+}

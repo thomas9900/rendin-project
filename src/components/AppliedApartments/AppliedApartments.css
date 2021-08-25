@@ -1,0 +1,25 @@
+.appliedApartments,
+.offers {
+    margin-top: 30px;
+}
+
+.appliedApartments__container {
+    background-color: #1F1F1F;
+    color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.appliedApartments__container h4 {
+    padding: 0 20px;
+}
+
+.appliedApartments__container div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.appliedApartments th, 
+.appliedApartments td {
+    padding: 0 20px;
+}
