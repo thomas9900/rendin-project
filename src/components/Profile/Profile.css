@@ -1,6 +1,8 @@
 .profile {
     float: right;
     margin: 20px;
+    position: sticky !important;
+    /* width: 30%; */
 }
 
 .profile__tenantContainer {
@@ -50,4 +52,8 @@
 .btn:hover {
     background-color: white !important;
     color: #FD5B01 !important;
+}
+
+.profile__imageInput {
+    display: none;
 }

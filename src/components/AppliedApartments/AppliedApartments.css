@@ -1,6 +1,6 @@
 .appliedApartments,
 .offers {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .appliedApartments__container {
@@ -8,6 +8,7 @@
     color: white;
     padding: 10px;
     padding-bottom: 20px;
+    margin-top: 10px;
 }
 
 .appliedApartments__container h4 {

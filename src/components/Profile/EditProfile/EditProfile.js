@@ -1,49 +1,63 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { Button } from "@material-ui/core"
+import { useHistory } from "react-router-dom"
+
 
 const EditProfile = ({ onEdit }) => {
-    const [text, setText] = useState('')
-    const [day, setDay] = useState('')
-    const [reminder, setReminder] = useState(false)
+    const [rooms, setRooms] = useState('')
+    const [price, setPrice] = useState('')
+    const [location, setLocation] = useState('')
+    const history = useHistory()
+
 
     const onSubmit = (e) => {
         e.preventDefault()
 
-        if (!text) {
-            alert('Please add a task')
-            return
-        }
+        // if (!rooms) {
+        //     alert('Please fill the form.')
+        //     return
+        // }
 
-        onEdit({ text, day, reminder })
+        onEdit({ rooms, price, location })
 
-        setText('')
-        setDay('')
-        setReminder(false)
-
-        console.log(reminder)
+        setRooms('')
+        setPrice('')
+        setLocation('')
     }
 
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
-                <label>Task</label>
+                <label>Rooms</label>
                 <input
-                    type='text'
-                    placeholder='Add Task'
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
+                    type='Number'
+                    placeholder='Number of rooms'
+                    value={rooms}
+                    onChange={(e) => setRooms(e.target.value)}
                 />
             </div>
             <div className='form-control'>
-                <label>Day & Time</label>
+                <label>Price</label>
                 <input
                     type='text'
-                    placeholder='Add Day & Time'
-                    value={day}
-                    onChange={(e) => setDay(e.target.value)}
+                    placeholder='Add price'
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                />
+            </div>
+            <div className='form-control'>
+                <label>Location</label>
+                <input
+                    type='text'
+                    placeholder='Choose location'
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
                 />
             </div>
 
-            <input type='submit' value='Save Task' className='btn btn-block' />
+            <Button type='submit' value='Save' className='btn' 
+            // onClick={() => history.push('/main')}
+            >Save</Button>
         </form>
     )
 }
