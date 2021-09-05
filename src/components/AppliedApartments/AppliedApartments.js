@@ -3,8 +3,6 @@ import './AppliedApartments.css'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 const AppliedApartments = ({ appliedApartments }) => {
-
-    
     return (
         <div className='appliedApartments'>
             {appliedApartments.map((appliedApartment) => (
@@ -13,13 +11,13 @@ const AppliedApartments = ({ appliedApartments }) => {
                     <h4>{appliedApartment.address}</h4>
                     <ChevronRightIcon className='rightArrow' />
                 </div>
-                <table>
+                <table className='appliedApartments__table'>
                     <tbody>
-                        <tr className=''>
+                        <tr>
                             <th>PRICE</th>
                             <th>SIZE</th>
                             <th>ROOMS</th>
-                            <th>APPLIED AT</th>
+                            <th>APPLIED</th>
                             <th>STATUS</th>
                         </tr>
                         <tr>
@@ -33,10 +31,7 @@ const AppliedApartments = ({ appliedApartments }) => {
                 </table>
             </div>
             ))}
-
-
         </div>
-
     )
 }
 

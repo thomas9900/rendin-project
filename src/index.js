@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createTheme, ThemeProvider } from "@material-ui/core";
 
-ReactDOM.render(
-    <App />,
-  document.getElementById('root')
-);
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FD5B01"
+    },
+  },
+});
+
+ReactDOM.render(<ThemeProvider theme={theme}><App /></ThemeProvider>, document.getElementById("root"));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -1,22 +1,19 @@
 import { useState, useContext } from 'react'
-import { Button } from "@material-ui/core"
-import { useHistory } from "react-router-dom"
-
+import './EditProfile.css'
+import { Button, Input } from "@material-ui/core"
 
 const EditProfile = ({ onEdit }) => {
     const [rooms, setRooms] = useState('')
     const [price, setPrice] = useState('')
     const [location, setLocation] = useState('')
-    const history = useHistory()
-
 
     const onSubmit = (e) => {
         e.preventDefault()
 
-        // if (!rooms) {
-        //     alert('Please fill the form.')
-        //     return
-        // }
+        if (!location) {
+            alert('Please choose location.')
+            return
+        }
 
         onEdit({ rooms, price, location })
 
@@ -24,39 +21,36 @@ const EditProfile = ({ onEdit }) => {
         setPrice('')
         setLocation('')
     }
-
+    
     return (
         <form className='add-form' onSubmit={onSubmit}>
             <div className='form-control'>
-                <label>Rooms</label>
-                <input
-                    type='Number'
-                    placeholder='Number of rooms'
+                <Input 
+                    color='primary'
+                    placeholder="Rooms"
+                    className='edit-input'
                     value={rooms}
-                    onChange={(e) => setRooms(e.target.value)}
-                />
+                    onChange={(e) => setRooms(e.target.value)} />
             </div>
             <div className='form-control'>
-                <label>Price</label>
-                <input
-                    type='text'
-                    placeholder='Add price'
+                <Input
+                    color='primary'
+                    className='edit-input'
+                    placeholder='Price'
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                 />
             </div>
             <div className='form-control'>
-                <label>Location</label>
-                <input
-                    type='text'
-                    placeholder='Choose location'
+                <Input
+                    color='primary'
+                    className='edit-input'
+                    placeholder='Location'
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                 />
             </div>
-
             <Button type='submit' value='Save' className='btn' 
-            // onClick={() => history.push('/main')}
             >Save</Button>
         </form>
     )

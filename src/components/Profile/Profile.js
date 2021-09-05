@@ -1,33 +1,24 @@
 import React, { useState, useContext } from 'react'
 import './Profile.css'
-import { Avatar, Button } from "@material-ui/core"
+import { Avatar, Button, Tooltip  } from "@material-ui/core"
 import AppliedApartments from '../AppliedApartments/AppliedApartments'
 import Btn from '../Btn'
 import EditProfile from './EditProfile/EditProfile'
 import { UserContext } from '../../UserContext'
-import PhotoCamera from '@material-ui/icons/PhotoCamera';
-
+import ImageUploading from 'react-images-uploading'
 
 const Profile = ({ switchEdit, showEdit, savedEditChanges, applied }) => {
-    const [profileInfo, setProfileInfo] = useState({})
-    const [selectedFile, setSelectedFile] = useState()
+    const [images, setImages] = useState([])
 
     const { tenantSelections, setTenantSelections } = useContext(UserContext)
 
     savedEditChanges = (info) => {
-        setProfileInfo(info)
         setTenantSelections(info)
     }
 
-    const fileSelectedHandler = (e) => {
-        setSelectedFile(e.target.files[0])
-        console.log(e.target.files[0])
+    const onChange = (imageList) => {
+        setImages(imageList)
     }
-
-    const fileUploadHandler = () => {
-        
-    }
-
 
     return (
         <div className='profile'>
@@ -37,29 +28,41 @@ const Profile = ({ switchEdit, showEdit, savedEditChanges, applied }) => {
                     <div className='profile__intro'>
                         <div>
                             <div>
-                                <Avatar className='profile__avatar' />
-                                <input accept="image/*" className='profile__imageInput' id="icon-button-file" type="file" />
-                                <label htmlFor="icon-button-file">
-                                    <Button color='secondary' aria-label="upload picture" component="span">
-                                        <PhotoCamera color='secondary' />
-                                        Upload
-                                    </Button>
-                                </label>
+                                <div className="">
+                                    <ImageUploading
+                                        value={images}
+                                        onChange={onChange}
+                                        dataURLKey="data_url"
+                                    >
+                                        {({
+                                            imageList,
+                                            onImageUpload,
+                                        }) => (
+                                            <div className="upload__image-wrapper">
+                                                <Tooltip title='Edit profile picture'>
+                                                    <Avatar onClick={onImageUpload}>
+                                                        {imageList.map((image, index) => (
+                                                            <div key={index} className="image-item">
+                                                                <img src={image['data_url']} alt="" width="70" />
+                                                            </div>
+                                                        ))}
+                                                    </Avatar>
+                                                </Tooltip>
+                                            </div>
+                                        )}
+                                    </ImageUploading>
+                                </div>
                             </div>
                         </div>
-
                         <h3>Hi I'm Emilia and I'm <br/> looking for a new home</h3>
                     </div>
                     <div className='profile__tenantData'>
-                        
                         {showEdit ? (<EditProfile onEdit={savedEditChanges} />)
                             : (<ul>
-                                {typeof profileInfo.rooms !== 'undefined' ? (<li>{profileInfo.rooms} rooms</li>) : 
-                                (<li>1-2 rooms</li>)}
-                                <li>450€ per month</li>
-                                <li>Tallinn</li>
+                                <li>Rooms - {tenantSelections.rooms ? tenantSelections.rooms : ''}</li>
+                                <li>Price - {tenantSelections.price ? tenantSelections.price : ' '} € per month</li>
+                                <li>Location - {tenantSelections.location ? tenantSelections.location : ''}</li>
                             </ul>)}
-
                         <div className='profile__buttons'>
                             <Btn
                                 text={showEdit ? 'Back' : 'Edit'}
@@ -73,11 +76,8 @@ const Profile = ({ switchEdit, showEdit, savedEditChanges, applied }) => {
             </div>
             <div>
                 <h3>Applied apartments</h3>
-
                 <AppliedApartments appliedApartments={applied} />
             </div>
-
-
             <div className='offers'>
                 <h3>Offers recieved</h3>
                 <p>No offers received yet</p>

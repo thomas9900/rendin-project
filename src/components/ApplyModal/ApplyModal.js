@@ -1,40 +1,27 @@
-import React, {useState} from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-
+import React, {useState} from 'react'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
 
 const ApplyModal = ({ onApply }) => {
-    const [open, setOpen] = useState(false);
-    const [applied, setApplied] = useState(false);
+    const [open, setOpen] = useState(false)
 
     const handleClickOpen = () => {
-        setOpen(true);
-    };
+        setOpen(true)
+    }
 
     const handleClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+    }
 
     const applyClose = () => {
         onApply()
-        setOpen(false);
-    };
-
-    // onApply = () => {
-    //     console.log('onapply')
-    //     setApplied(true)
-    //     handleClose()
-    // }
-
-    // const handleApply = () => {
-    //     setApplied(true)
-    //     handleClose()
-    // }
+        setOpen(false)
+    }
 
     return (
         <div>

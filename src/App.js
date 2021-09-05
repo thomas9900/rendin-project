@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import fire from './fire'
+import fire from './helpers/fire'
 import Header from './components/Header/Header'
 import Main from './components/Main/Main'
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import { BrowserRouter as Router } from "react-router-dom"
 import Login from './components/Login/Login'
 
 const App = () => {
@@ -82,21 +82,27 @@ const App = () => {
   return (
     <div className='app'>
       <Router>
-        <Header />
-        <Login 
-          email={email} 
-          setEmail={setEmail} 
-          password={password} 
-          setPassword={setPassword}
-          handleLogin={handleLogin}
-          handleSignup={handleSignup}
-          hasAccount={hasAccount}
-          setHasAccount={setHasAccount}
-          emailError={emailError}
-          passwordError={passwordError}
-        />
-        <><hr /></>
-        <Main />
+        {user ? (
+          <div className='app-container'>
+          <Header handleLogout={handleLogout} user={user} />
+          <hr />
+          <Main />
+          </div>
+        )
+        : (
+          <Login
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            handleLogin={handleLogin}
+            handleSignup={handleSignup}
+            hasAccount={hasAccount}
+            setHasAccount={setHasAccount}
+            emailError={emailError}
+            passwordError={passwordError}
+          />
+        )}
       </Router>
     </div>
   )

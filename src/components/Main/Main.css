@@ -1,4 +1,15 @@
-.main__suggestedApartments {
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .main {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.main__apartmentList {
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
@@ -7,10 +18,4 @@
 .main__viewChoiceButtons {
   margin-left: 20px;
   margin-top: 20px;
-}
-
-.main__viewChoiceButtons .active {
-  border-bottom: 1px solid #FD5B01;
-  border-radius: 0;
-  padding-bottom: 3px;
 }

@@ -1,8 +1,6 @@
 .profile {
-    float: right;
-    margin: 20px;
-    position: sticky !important;
-    /* width: 30%; */
+    margin: 0 20px;
+    min-width: 500px;
 }
 
 .profile__tenantContainer {
@@ -30,10 +28,6 @@
     padding: 7px 0;
 }
 
-.profile__avatar {
-    /* margin: auto; */
-}
-
 .profile__buttons {
     display: flex;
     flex-direction: column;
@@ -56,4 +50,14 @@
 
 .profile__imageInput {
     display: none;
+}
+
+.upload__image-wrapper{
+    cursor: pointer;
+}
+
+.image-item img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }

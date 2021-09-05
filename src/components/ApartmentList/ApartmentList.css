@@ -1,13 +1,54 @@
-.filled {
-    color: red !important;
-}
-
-.not {
-    color: green !important;
-}
-
-.suggestedApartment {
+.apartmentList {
+    margin: 15px 10px;
+    overflow: hidden;
+    box-shadow: 0px 6px 18px -9px rgba(0, 0, 0, 0.7);
+    transition: transform 100ms ease-in;
+    height: 420px;
+    width: 340px;
     position: relative;
+}
+
+.apartmentList:hover {
+  transform: scale(1.06);
+}
+
+.apartmentList img {
+  object-fit: fill;
+  width: 300px;
+  height: 200px;
+  width: 100%;
+}
+
+.apartmentList__info {
+    margin-top: -9px;
+    padding: 10px;
+    padding-top: 10px;
+    border: 1;
+}
+
+.apartmentList__info h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.apartmentList__info h4 {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.apartmentList__info a {
+  display: block;
+  margin: 10px 0 20px 0;
+}
+
+.apartmentList__info th {
+  padding-right: 25px;
+}
+
+.favouriteIcon {
+  float: right;
 }
 
 .rendin-logo {
@@ -16,5 +57,13 @@
     right: 10px;
     width: 30px !important;
     height: 30px !important;
+}
+
+.apartmentList__table {
+  font-size: 14px;
+}
+
+.apartmentList__tableRooms {
+  padding-left: 20px;
 
 }
